@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Livro, Itenscompra
+
+@admin.register(Livro)
+class LivroAdmin(admin.ModelAdmin):
+    list_display = ["titulo", "preco", "ano"]
+    
+    pass 
