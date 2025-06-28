@@ -13,13 +13,3 @@ class Livro(models.Model):
     def __str__(self):
         return self.titulo
     
-
-class Itenscompra(models.Model):
-
-    livro = models.ForeignKey(Livro, on_delete=models.SET_NULL, null=True)
-    quantidade = models.IntegerField()
-
-
-    def __str__(self):
-        #* deve retornar o nome do livro 
-        return f'compra:{self.id}-{self.livro}-{self.quantidade}'
