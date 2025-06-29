@@ -13,6 +13,7 @@ class ClienteAdmin(admin.ModelAdmin):
     search_fields = ('nome', 'sobrenome')
     list_filter = ('ativo',)
 
+
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'cliente', 'status')
@@ -23,3 +24,11 @@ class PedidoAdmin(admin.ModelAdmin):
     )
     list_filter = ('status',)
     date_hierarchy = 'created'
+
+
+@admin.register(Venda)
+class VendaAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'status', 'data_pagamento', 'metodo', 'entrega')
+    list_filter = ('status', 'metodo')
+    date_hierarchy = 'created'
+
